@@ -1,5 +1,9 @@
 import React from "react";
 
+const getTotalBaseStats = (pokemon) => {
+    return pokemon.stats.reduce((total, stat) => total + stat.base_stat, 0);
+};
+
 const Pokeinfo = ({ data }) => {
     return (
         <>
@@ -16,8 +20,9 @@ const Pokeinfo = ({ data }) => {
                                             <h3>{poke.stat.name}: {poke.base_stat}</h3>
                                         </>
                                     )
-                                })
+                                }) 
                             }
+                            <h3>Soma dos atributos: {getTotalBaseStats(data)}</h3>
                         </div>
                     </>
                 )
